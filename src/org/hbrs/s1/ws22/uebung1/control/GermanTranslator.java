@@ -12,7 +12,7 @@ public class GermanTranslator implements Translator {
 			String[] translation = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn"};
 			return translation[number - 1];
 		} catch(ArrayIndexOutOfBoundsException e) {
-			return "Übersetzung der Zahl" + number + "nicht möglich. Version: " + version;
+			return "Übersetzung der Zahl " + number + " nicht möglich. Version: " + version;
 		}
 
 	}
