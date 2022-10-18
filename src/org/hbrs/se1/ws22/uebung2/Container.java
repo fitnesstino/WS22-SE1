@@ -1,6 +1,7 @@
 package org.hbrs.se1.ws22.uebung2;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Container {
 
@@ -9,7 +10,7 @@ public class Container {
     public void addMember(Member member) throws ContainerException{
         //Prüfe, ob Element schon vorhanden
         for (Member memberElement : members) {
-            if (memberElement == member) {
+            if (Objects.equals(memberElement.getID(), member.getID())) {
                 throw new ContainerException(member.getID());
             }
         }
@@ -19,12 +20,12 @@ public class Container {
     public String deleteMember(Integer id) {
         //Durchsuche Datenstruktur nach Member
         for (Member memberElement : members) {
-            if (memberElement.getID() == id) {
+            if (Objects.equals(memberElement.getID(), id)) {
                 members.remove(memberElement);
                 return "" + memberElement.getID();
             }
         }
-        return "Member nicht gefunden.";
+        return null;
     }
 
     public void dump() {
