@@ -1,0 +1,5 @@
+Welche Nachteile ergeben sich aus ihrer Sicht für ein solchen Fehler-
+handling gegenüber einer Lösung mit Exceptions?
+=> Wenn der Rückgabewert(String) nicht verarbeitet wird, ist nicht bekannt, ob der Member korrekt entfernt wurde.
+Wird stattdessen eine Exception geworfen, muss diese behandelt werden, es fällt auf, wenn der Member nicht korrekt
+entfernt wurde.
