@@ -1,8 +1,11 @@
 package org.hbrs.se1.ws22.uebung2;
 
-public class ContainerException extends Exception{
+public class ContainerException extends Exception {
+    public ContainerException(String message) {
+        super("Das Member-Objekt mit der ID " + message + " ist bereits vorhanden!");
+    }
 
-    public ContainerException(Integer id) {
-        super("Das Member-Objekt mit der ID " + id + "ist bereits vorhanden!");
+    public ContainerException() {
+        super("Objekt darf nicht NULL sein!");
     }
 }

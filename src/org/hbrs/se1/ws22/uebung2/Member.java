@@ -1,6 +1,8 @@
 package org.hbrs.se1.ws22.uebung2;
 
-public interface Member {
+import java.io.Serializable;
+
+public interface Member extends Serializable {
 
     /**
      * ID ist über einen Konstruktor einer abgeleiteten Klasse

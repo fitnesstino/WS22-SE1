@@ -1,11 +1,13 @@
 package org.hbrs.se1.ws22.uebung3.persistence;
 
+import java.io.*;
 import java.util.List;
 
 public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
 
     // URL of file, in which the objects are stored
     private String location = "objects.ser";
+
 
     // Backdoor method used only for testing purposes, if the location should be changed in a Unit-Test
     // Example: Location is a directory (Streams do not like directories, so try this out ;-)!
@@ -20,7 +22,12 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      * and save
      */
     public void openConnection() throws PersistenceException {
-
+        /*
+            ObjectInputStream is looking for Metadata in the file as soon as it is created, therefore it cannot
+            be created together with ObjectOutputStream as ObjectOutputStream is needed to write the metadata to
+            the file. This means that either a previously created file or different openConnection methods for
+            read and write are required.
+         */
     }
 
     @Override
@@ -36,7 +43,22 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      * Method for saving a list of Member-objects to a disk (HDD)
      */
     public void save(List<E> member) throws PersistenceException  {
+        FileOutputStream fileOutputStream;
+        ObjectOutputStream objectOutputStream;
+        try {
+            fileOutputStream=new FileOutputStream(location);
+        } catch (FileNotFoundException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.FileNotFound, e.getMessage());
+        }
 
+        try {
+            objectOutputStream=new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(member);
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.IOError,e.getMessage());
+        }
     }
 
     @Override
@@ -46,25 +68,40 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      * Take also a look at the import statements above ;-!
      */
     public List<E> load() throws PersistenceException  {
-        // Some Coding hints ;-)
+        Object obj;
+        FileInputStream fileInputStream;
+        ObjectInputStream objectInputStream;
 
-        // ObjectInputStream ois = null;
-        // FileInputStream fis = null;
-        // List<...> newListe =  null;
-        //
-        // Initiating the Stream (can also be moved to method openConnection()... ;-)
-        // fis = new FileInputStream( " a location to a file" );
-        // Tipp: Use a directory (ends with "/") to implement a negative test case ;-)
-        // ois = new ObjectInputStream(fis);
+        try {
+            fileInputStream=new FileInputStream(location);
+        } catch (FileNotFoundException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.FileNotFound,e.getMessage());
+        }
 
-        // Reading and extracting the list (try .. catch ommitted here)
-        // Object obj = ois.readObject();
+        try {
+            objectInputStream=new ObjectInputStream(fileInputStream);
+        } catch (IOException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.IOError,e.getMessage());
+        }
 
-        // if (obj instanceof List<?>) {
-        //       newListe = (List) obj;
-        // return newListe
+        try {
+            obj = objectInputStream.readObject();
+        } catch (IOException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.IOError, e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.ClassError, "Read Object is not of known Class!");
+        }
 
-        // and finally close the streams (guess where this could be...?)
-        return null;
+        try {
+            objectInputStream.close();
+            fileInputStream.close();
+        } catch (IOException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.IOError, e.getMessage());
+        }
+
+        if (obj instanceof List<?>) {
+            return (List<E>) obj;
+        }
+        throw new PersistenceException(PersistenceException.ExceptionType.ClassError, "Read Object is not of known Class!");
     }
 }
