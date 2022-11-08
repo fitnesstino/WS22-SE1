@@ -1,0 +1,86 @@
+US1: Account erstellen
+Es soll für Nutzer möglich sein, einen Account anzulegen. Hierbei soll zwischen der Rolle eines Unternehmers und eines Studenten
+unterschieden werden. Es sollen die persönlichen Daten (Name, Vorname, Telefonnummer, E-Mail Adresse) abgefragt werden.
+Alle Felder sollen Pflichtfelder sein. Der Nutzer wird als Datensatz in einer Datenbank abgespeichert.
+Akzeptanzkriterien:
+Student mit gültigen Daten (pass), Unternehmer mit gültigen Daten (pass), Student mit fehlerhaften Daten (fail)
+Epic:
+Benutzerverwaltung
+Value: 4	Aufwand: 3
+
+
+US2: Account löschen
+Es soll für Nutzer möglich sein, unter Berücksichtigung der DSGVO ihren Account vollständig löschen zu lassen. Hierbei sollen alle
+Daten des Nutzers restlos aus der Datenbank entfernt werden.
+Akzeptanzkriterien:
+Nutzer mit validen Login-Daten löschen (pass), Nicht existenten Nutzer löschen (fail)
+Epic:
+Benutzerverwaltung
+Value: 2	Aufwand: 2
+
+
+US3: Generelle Projektübersicht erstellen
+Es soll für Nutzer möglich sein, eine Übersicht über alle relevanten Projekt der Region zu erhalten. Für diese Übersichtsseite
+sollen mehrere Filter konfiguriert werden (nach Standort, nach Studiengang, nach Abschluss).
+Akzeptanzkriterien:
+Projekte sind sichtbar (pass), Ungültige Filterwerte setzen (fail)
+Epic:
+Projektübersicht
+Value: 5	Aufwand: 8
+
+
+US4: Neues Projekt inserieren
+Es soll für Unternehmensnutzer möglich sein, ein neues Projekt zu inserieren. Hierfür müssen alle relevanten Daten abgefragt werden
+(Projektname, Projektbeschreibung, Dauer des Projekts, Standort, Anforderungslevel, Studiengang). Alle Felder sollen Pflichtfelder
+sein. Das Projekt wird als Datensatz in einer Datenbank gespeichert.
+Akzeptanzkriterien:
+Neues Projekt wird von Unternehmer mit gültigen Werten erstellt (pass), Neues Projekt wird mit ungültigen Werten erstellt (fail),
+Neues Projekt wird von Student erstellt (fail)
+Epic:
+Projektübersicht
+Value: 4	Aufwand: 8
+
+
+US5: Bestehendes Projekt löschen
+Es soll für Unternehmensnutzer möglich sein, ein bestehendes Projekt vorzeitig von der Übersichtsseite zu löschen. Hierbei soll
+der Datensatz aus der Datenbank entfernt werden.
+Akzeptanzkriterien:
+Bestehendes Projekt wird von Unternehmensnutzer entfernt (pass), Nicht-existentes Projekt wird von Unternehmensnutzer entfernt (fail)
+Epic:
+Projektübersicht
+Value: 2	Aufwand: 5
+
+
+US6: Profilseite für Unternehmen
+Es soll für Unternehmensnutzer möglich sein, eigene Profilseiten anzulegen. Hierbei können Links zu Social Media Profilen eingetragen
+werden und/oder eigene Informationen über das Unternehmen dargestellt werden.
+Akzeptanzkriterien:
+Profilseite anlegen (pass), Profilseite mit Social Media Links füllen (pass)
+Epic:
+Profilseiten
+Value: 1	Aufwand: 3
+
+
+US7: Kontakt aufnehmen
+Es soll für Studentennutzer möglich sein, ein Projekt anzuwählen und direkt eine Kontaktmöglichkeit des Unternehmens vorgeschlagen
+bekommen. Hierfür sollen die im Unternehmensprofil/im Projekt hinterlegten Kontaktmöglichkeiten verwendet werden. Sollte mehr als
+eine Kontaktmöglichkeit bestehen, kann der Student aus einer Liste auswählen.
+Akzeptanzkriterien:
+Projekt anwählen und Vorschlag bekommen (pass), Projekt anwählen und keine Vorschläge bekommen, weil keine Kontaktmöglichkeiten
+hinterlegt (fail)
+Epic:
+Profilseiten
+Value: 3	Aufwand: 3
+
+
+US8: Informationsmaterial anfordern
+Es soll für Studentennutzer möglich sein, mehr Informationen über ein Projekt anfragen zu können, ohne direkt mit dem Unternehmen
+in Kontakt zu treten. Hierfür soll der Unternehmensnutzer des Projekts eine Info erhalten, dass mehr Details über das Projekt angefragt
+wurden. Der Unternehmensnutzer soll die Möglichkeit erhalten, dem Studentennutzer per E-Mail weitere Informationen zuzustellen.
+Akzeptanzkriterien:
+Mehr Informationen anfragen und Info an Unternehmensnutzer (pass)
+Epic:
+Profilseiten
+Value: 1	Aufwand: 5
+
+
