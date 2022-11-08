@@ -48,7 +48,7 @@ public class Container {
 	
 	/**
 	 * Vorschriftsmäßiges Ueberschreiben des Konstruktors (private) gemaess Singleton-Pattern (oder?)
-	 * ToDo (Bewertung des Konstruktors)
+	 * TODO Schlecht weil Konstruktor nicht private
 	 */
 	Container(){
 		liste = new ArrayList<Employee>();
