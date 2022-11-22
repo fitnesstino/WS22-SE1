@@ -1,0 +1,37 @@
+Nr. 2a)
+Nein, das Small Kriterium ist nicht erfüllt, gut erkennbar am Schlüsselwort "sowie".
+Es würde Sinn machen, die User Story in folgende zwei Stories aufzuteilen:
+
+"Ein Student soll die Möglichkeit haben nach Stellenanzeigen zu suchen, um effektiv
+auf die Angebote der Unternehmen eingehen zu können."
+Akzeptanztests:
+Gültiges Stichwort eingeben und Ergebnisse anzeigen (pass), Leeres Suchfeld und keine Ergebnisse anzeigen (pass)
+
+"Ein Student soll die Möglichkeit haben sich auf Stellenanzeigen zu bewerben, um einen
+direkten Kontakt mit den Unternehmen herstellen zu können."
+Akzeptanztests:
+Auf gültige Stellenanzeige bewerben (pass), Auf bereits deaktivierte Stellenanzeige bewerben (fail)
+
+
+Nr. 2b)
+Ja, zwei Erweiterungen. Siehe neue Graphik.
+
+
+Nr. 2c)
+Name des Use Cases: Student auf Stellenanzeige bewerben
+Teilnehmende Akteure: Student
+Ereignisfluss:
+1. Student wählt geeignete Stellenanzeige aus.
+2. System leitet auf Seite der Stellenanzeige weiter.
+3. Student füllt Eingabemaske zur Bewerbung aus.
+4. System prüft Daten auf Plausibilität (RegEx).
+5. System speichert Daten in Datenbank ab.
+6. System informiert Unternehmen per E-Mail über eingegangene Bewerbung.
+7. System informiert Student über erfolgreiche Bewerbung.
+Vorbedingung:
+Student ist angemeldet,
+Suche nach Stellenanzeigen wurde erfolgreich durchgeführt
+Nachbedingung:
+Bewerbung wurde erfolgreich durchgeführt
+Qualitätsanforderungen:
+Angaben werden auf Plausibilität geprüft
