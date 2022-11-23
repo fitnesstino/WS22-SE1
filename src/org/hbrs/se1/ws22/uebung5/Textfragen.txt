@@ -19,7 +19,7 @@ Ja, zwei Erweiterungen. Siehe neue Graphik.
 
 Nr. 2c)
 Name des Use Cases: Student auf Stellenanzeige bewerben
-Teilnehmende Akteure: Student
+Teilnehmende Akteure: Student, (Unternehmen)
 Ereignisfluss:
 1. Student wählt geeignete Stellenanzeige aus.
 2. System leitet auf Seite der Stellenanzeige weiter.
