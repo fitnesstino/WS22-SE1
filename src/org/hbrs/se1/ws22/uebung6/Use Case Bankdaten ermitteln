@@ -1,0 +1,6 @@
+Name des Use Cases: Bankdaten ermitteln
+Ereignisfluss:
+1.	Falls schon Bankdaten hinterlegt wurden können! diese verwendet werden. (Rücksprung in Basis Use Case, ausgewählte bestehende Bankdaten werden zurückgegeben)
+2.	Es werden neue Bankdaten hinzugefügt.
+3.	Bankdaten werden gespeichert.
+Bankdaten werden an die Anwendung zurückgegeben. (Rücksprung in Basis Use Case, neue Bankdaten werden übergeben)

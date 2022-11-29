@@ -2,7 +2,7 @@ package org.hbrs.se1.ws22.demo.kapitel4;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template Use Case, choose Tools | Templates
  * and open the template in the editor.
  */
 

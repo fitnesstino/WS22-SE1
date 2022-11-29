@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
 
-    // URL of file, in which the objects are stored
+    // URL of Use Case, in which the objects are stored
     private String location = "objects.ser";
 
 
@@ -23,9 +23,9 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
      */
     public void openConnection() throws PersistenceException {
         /*
-            ObjectInputStream is looking for Metadata in the file as soon as it is created, therefore it cannot
+            ObjectInputStream is looking for Metadata in the Use Case as soon as it is created, therefore it cannot
             be created together with ObjectOutputStream as ObjectOutputStream is needed to write the metadata to
-            the file. This means that either a previously created file or different openConnection methods for
+            the Use Case. This means that either a previously created Use Case or different openConnection methods for
             read and write are required.
          */
     }

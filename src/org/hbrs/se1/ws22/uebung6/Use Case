@@ -1,0 +1,38 @@
+Use Case Name:
+Jobangebot einstellen
+
+System: Coll@HBRS
+
+Akteure:
+Unternehmer
+
+Vorbedingung:
+•	Registrierter Unternehmer ist im System Coll@HBRS eingeloggt
+•	Der Unternehmer hat auf der Startseite von Coll@HBRS die Seite zur Einstellung eines Jobangebots angefordert, das System hat die Seite entsprechend dargestellt.
+
+Grundlegender Ereignisfluss:
+1.	Der Unternehmer spezifiziert in einem Unterbereich dieser Unterseite die grundlegenden Daten für sein Jobangebot, die der Student erfüllen muss. Dabei bestimmt er innerhalb von diesem Anwendungsfall auch die Art des Jobangebots. Folgende Arten von Job Angeboten werden unterstützt: Praktika, Festanstellung oder Freelancer-Tätigkeiten. Falls die Eingabe getätigt wurde, navigiert der Unternehmer zur nächsten Eingabeseite. Das System zeigt die Eingabeseite an.
+
+2.	Der Unternehmer schreibt einen Beschreibungstext des Jobangebots innerhalb dieser Eingabeseite. Falls die Eingabe fertig ist, navigiert er zur nächsten Seite, die das System ihm anzeigt. Alternativ kann er zur letzten Eingabeseite zurück navigieren, um dort Änderungen vorzunehmen (Rücksprung Schritt 2).
+
+3.	Der Unternehmer kann in einer Gesamtübersicht seine eingegebenen Daten lesen. Er muss die Korrektheit der Daten bestätigen. Falls er Fehler in seinen
+Beschreibungen feststellt, kann er zu Schritt 3 zurücknavigieren. Falls keine Fehler vorhanden sind, schickt er den Auftrag zur Einstellung des Jobangebots an das System.
+
+4.	Das System empfängt die eingegebenen Daten des Auftrags für das Jobangebot.
+Das System überprüft die eingegebenen Daten, sollten diese zu unspezifisch für Informatik sein (Extension Point: “Keine Korrektheit”, Condition: “Beschreibung des Jobangebot zu unspezifisch für Informatik”), wird der Ereignisfluss durch den Use Case “Fehlermeldung ausgeben” unterbrochen.
+
+5.	Das System erstellt auf Basis der korrekten Daten ein Jobangebot und überführt die Angaben aus diesem in ein externes Informationssystem eines Cloudanbieters.
+
+6.	Das System ermittelt die Bankdaten des Unternehmers durch Einbeziehung des Use Cases “Bankdaten ermitteln”.
+
+7.	Das System ermittelt den Betrag für das Jobangebot und bucht von dem Konto des
+Unternehmens über die Einbeziehung des Use Case „Bankeinzug durchführen“ den Betrag per Bankeinzug ab. Sollte dieser Use Case mit einer Fehlermeldung abbrechen, wird der aktuelle Ereignisfluss durch den alternativen Ereignisfluss unterbrochen.
+8.	Das System schickt dem Unternehmer eine Bestätigung zurück auf eine neue Ausgabeseite, dass das Jobangebot erfolgreich eingestellt werden konnte. Die Bestätigung enthält außerdem eine Mitteilung, dass das System den Betrag erfolgreich abbuchen konnte.
+
+Alternativer Ereignisfluss:
+1.	Unternehmer sichtet Bankdaten erneut.
+2.	Das System empfängt eventuell geänderte Bankdaten.
+3.	Es wird zurück in den grundlegenden Ereignisfluss gesprungen (Schritt 7 wird erneut ausgeführt).
+
+Nachbedingung:
+Es wurde ein gültiges Jobangebot erstellt. Außerdem wurde ein Bankeinzug auf ein gültiges Konto über den jeweiligen Betrag veranlasst.

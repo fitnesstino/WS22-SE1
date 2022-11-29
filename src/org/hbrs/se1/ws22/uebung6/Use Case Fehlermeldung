@@ -1,0 +1,4 @@
+Name des Use Case: Fehlermeldung ausgeben
+Ereignisfluss:
+1.	Fehlermeldung über Ausgabedialog über fehlende Spezifität des Jobangebots ausgeben.
+2.	Eingabe des Jobangebots kann neu gestartet werden (Neustart Use Case “Jobangebot einstellen”) oder Anwendung kann verlassen werden (Abbruch Basis Use Case)

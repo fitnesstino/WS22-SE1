@@ -55,7 +55,7 @@ class ContainerTest {
     @Test
     void directoryTest(){
         PersistenceStrategyStream<Member> persistenceStrategy=new PersistenceStrategyStream<>();
-        persistenceStrategy.setLocation("./");  //current Directory instead of file
+        persistenceStrategy.setLocation("./");  //current Directory instead of Use Case
         container.setPersistenceStrategy(persistenceStrategy);
         assertEquals(PersistenceException.ExceptionType.FileNotFound,assertThrows(PersistenceException.class, ()->container.load()).getExceptionTypeType());
         assertEquals(PersistenceException.ExceptionType.FileNotFound,assertThrows(PersistenceException.class, ()->container.store()).getExceptionTypeType());
